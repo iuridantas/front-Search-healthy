@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   Flex,
   Input,
@@ -11,12 +11,30 @@ import {
 } from '@chakra-ui/react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { api } from '../../utils/api/apiLogin';
 
 export function Login() {
   const [viewPassword, setViewPassword] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const handleShowClick = () => setViewPassword(!viewPassword);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setLoading(true);
+
+    const login = {
+      email: event.currentTarget.email.value,
+      password: event.currentTarget.password.value,
+    };
+
+    const userData = await api.signIn(login);
+    setLoading(false);
+    if (userData) {
+      navigate('/home');
+    }
+  }
 
   return (
     <Flex
@@ -27,7 +45,7 @@ export function Login() {
     >
       <Stack mb="6">
         <Box minW={{ md: '500px' }}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <Stack
               spacing={4}
               p="1rem"
@@ -63,19 +81,28 @@ export function Login() {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <Button
-                borderRadius={20}
-                type="submit"
-                variant="solid"
-                colorScheme="blue"
-                color="black"
-                backgroundColor="rgba(66, 153, 225, 0.6)"
-                onClick={() => {
-                  navigate('/home');
-                }}
-              >
-                Login
-              </Button>
+              {loading ? (
+                <Button
+                  isLoading
+                  loadingText="Loading"
+                  borderRadius={20}
+                  variant="solid"
+                  colorScheme="blue"
+                  color="black"
+                  backgroundColor="rgba(66, 153, 225, 0.6)"
+                />
+              ) : (
+                <Button
+                  borderRadius={20}
+                  type="submit"
+                  variant="solid"
+                  colorScheme="blue"
+                  color="black"
+                  backgroundColor="rgba(66, 153, 225, 0.6)"
+                >
+                  Login
+                </Button>
+              )}
             </Stack>
           </form>
         </Box>
