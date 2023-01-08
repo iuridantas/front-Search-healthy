@@ -2,6 +2,6 @@
 
 export function Home() {
   return (
-    <div>H</div>
+    <div>home</div>
   )
 }
