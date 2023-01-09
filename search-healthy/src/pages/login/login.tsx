@@ -16,6 +16,7 @@ import { api } from '../../utils/api/apiLogin';
 export function Login() {
   const [viewPassword, setViewPassword] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+
   const navigate = useNavigate();
 
   const handleShowClick = () => setViewPassword(!viewPassword);
@@ -31,6 +32,7 @@ export function Login() {
 
     const userData = await api.signIn(login);
     setLoading(false);
+    console.log(userData);
     if (userData) {
       navigate('/home');
     }
@@ -55,13 +57,14 @@ export function Login() {
             >
               <FormControl>
                 <InputGroup>
-                  <Input borderRadius={10} type="email" placeholder="email" />
+                  <Input borderRadius={10} type="email" placeholder="email" name='email' />
                 </InputGroup>
               </FormControl>
               <FormControl>
                 <InputGroup>
                   <Input
                     type={viewPassword ? 'text' : 'password'}
+                    name='password'
                     placeholder="Password"
                     borderRadius={10}
                   />

@@ -1,14 +1,32 @@
-import { LoginRequest } from "../types/requests";
+import { LoginResponse, SignIn } from '../types/requests';
+import axios from 'axios';
+import swal from 'sweetalert';
+
+axios.defaults.baseURL = 'http://localhost:3000/';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Authorization'] =
+  'Bearer ' + localStorage.getItem('token');
+
+function handleError(text: string, description: string) {
+  swal({
+    title: text,
+    text: description,
+    icon: 'warning',
+    timer: 5000,
+  });
+}
 
 export const api = {
-    signIn: async ({ email, password }: LoginRequest) => {
-    const response = await fetch("http://localhost:3000/api/docs#/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    return await response.json();
+  signIn: async (loginData: SignIn): Promise<LoginResponse | undefined> => {
+    try {
+      const login = await axios.post('/auth/login', loginData);
+      localStorage.setItem('token', login.data.token);
+      return login.data;
+    } catch (err: any) {
+      handleError(
+        'Email ou senha incorretos tente novamente',
+        err.response.data.message[0],
+      );
+    }
   },
 };
