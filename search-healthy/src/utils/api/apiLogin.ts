@@ -1,4 +1,4 @@
-import { LoginResponse, SignIn } from '../types/requests';
+import { LoginResponse, SignIn, User, UserInput } from '../types/requests';
 import axios from 'axios';
 import swal from 'sweetalert';
 
@@ -17,6 +17,14 @@ function handleError(text: string, description: string) {
 }
 
 export const api = {
+  registerUser: async (user: UserInput): Promise<User | undefined> => {
+    try {
+      const userCreate = await axios.post('/user/create', user);
+      return userCreate.data;
+    } catch (err: any) {
+      handleError('Erro ao registrar o usuário', err.response.data.message[0]);
+    }
+  },
   signIn: async (loginData: SignIn): Promise<LoginResponse | undefined> => {
     try {
       const login = await axios.post('/auth/login', loginData);

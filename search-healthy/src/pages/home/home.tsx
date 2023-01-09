@@ -1,8 +1,5 @@
-import { Flex } from "@chakra-ui/react";
-
-
 export function Home() {
   return (
-
+    <h1>oi</h1>
   )
 }

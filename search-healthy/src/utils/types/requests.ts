@@ -6,6 +6,13 @@ export type User = {
   cpf: string;
 };
 
+export type UserInput = {
+  name: string;
+  email: string;
+  password: string;
+  cpf: string;
+};
+
 export type SignIn = {
   email: string;
   password: string;
