@@ -54,22 +54,18 @@ export function Register() {
               boxShadow="md"
               borderRadius={14}
             >
-              <InputGroup>
-                <InputGroup pr={1}>
-                  <Input
-                    borderRadius={10}
-                    type="name"
-                    placeholder="name"
-                    name="name"
-                  />
-                </InputGroup>
-                <Input
-                  borderRadius={10}
-                  type="cpf"
-                  placeholder="cpf"
-                  name="cpf"
-                />
-              </InputGroup>
+              <Input
+                borderRadius={10}
+                type="name"
+                placeholder="name"
+                name="name"
+              />
+              <Input
+                borderRadius={10}
+                type="cpf"
+                placeholder="cpf"
+                name="cpf"
+              />
               <Input
                 borderRadius={10}
                 type="email"
