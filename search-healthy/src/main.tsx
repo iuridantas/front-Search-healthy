@@ -7,6 +7,7 @@ import { Register } from './pages/register/register';
 import { Home } from './pages/home/home';
 import { Footer } from './components/footer/footer';
 import { extendTheme } from '@chakra-ui/react'
+import { Header } from './components/header/header';
 
 const theme = extendTheme({
   styles: {
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
     <BrowserRouter>
+    <Header />
     <Routes>
     <Route path="/" element={<Login />} />
     <Route path="/register" element={<Register />} />
