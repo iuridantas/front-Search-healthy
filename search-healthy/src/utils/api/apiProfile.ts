@@ -83,14 +83,4 @@ export const api = {
       handleError('Erro ao atualizar o perfil', err.response.data.message[0]);
     }
   },
-  getHome: async (profileId: string): Promise<Profiles[] | undefined> => {
-    try {
-      const teams = await axios.get('/home/personal/' + profileId, {
-        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
-      });
-      return teams.data;
-    } catch (err: any) {
-      handleError('Home não encontrada', err.response.data.message[0]);
-    }
-  },
 }

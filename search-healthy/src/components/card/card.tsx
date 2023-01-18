@@ -20,7 +20,7 @@ interface CardProps extends Profiles {
   updatePage: () => void;
 }
 
-export function CardProfile({ _id, name, image, gym, updatePage }: CardProps) {
+export function CardHome({ _id, name, image, tall, weigth, objective, gym, services, updatePage }: CardProps) {
   const navigate = useNavigate();
 
   async function DeleteCard() {
@@ -70,7 +70,6 @@ export function CardProfile({ _id, name, image, gym, updatePage }: CardProps) {
       <Divider />
       <CardFooter>
         <ButtonGroup spacing="2">
-          {localStorage.getItem('token') ? (
             <Button
               backgroundColor="rgba(66, 153, 225, 0.6)"
               variant="solid"
@@ -79,8 +78,6 @@ export function CardProfile({ _id, name, image, gym, updatePage }: CardProps) {
             >
               Remover
             </Button>
-          ) : null}
-          {localStorage.getItem('token') ? (
             <Button
               variant="ghost"
               colorScheme="blue"
@@ -90,7 +87,16 @@ export function CardProfile({ _id, name, image, gym, updatePage }: CardProps) {
             >
               Editar
             </Button>
-          ) : null}
+            <Button
+              variant="solid"
+              colorScheme="blue"
+              backgroundColor="rgba(66, 153, 225, 0.6)"
+              onClick={() => {
+                navigate('/training/find/' + _id);
+              }}
+            >
+              Treino
+            </Button>
         </ButtonGroup>
       </CardFooter>
     </Card>
