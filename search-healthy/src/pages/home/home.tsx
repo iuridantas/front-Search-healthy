@@ -1,10 +1,9 @@
 import { api } from '../../utils/api/apiProfile';
-import { CardListDiv, Load } from './style';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CardHome } from '../../components/card/card';
 import { Profiles } from '../../utils/types/requests';
-
+import { Card, Text } from '@chakra-ui/react';
 
 export function Home() {
   const [profiles, setProfiles] = useState<Profiles[]>([]);
@@ -15,7 +14,7 @@ export function Home() {
   async function getTeamsInfo() {
     setLoading(true);
     const allProfiles = await api.getProfiles();
-    setProfiles(allProfiles?? []);
+    setProfiles(allProfiles ?? []);
     setLoading(false);
   }
 
@@ -30,12 +29,20 @@ export function Home() {
   return (
     <>
       {loading ? (
-        <Load>
+        <Text fontSize="2rem" color="black">
           {' '}
           <h1>loading...</h1>
-        </Load>
+        </Text>
       ) : (
-        <CardListDiv>
+        <Card
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="space-evenly"
+          alignItems="center"
+          direction="row"
+          paddingTop="10vh"
+          paddingBottom="10vh"
+        >
           {profiles.map((profiles) => {
             return (
               <CardHome
@@ -52,7 +59,7 @@ export function Home() {
               />
             );
           })}
-        </CardListDiv>
+        </Card>
       )}
     </>
   );

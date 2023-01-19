@@ -44,7 +44,6 @@ export function CardHome({ _id, name, image, tall, weigth, objective, gym, servi
         },
       },
     }).then(async (res) => {
-      console.log(res);
       if (res) {
         const isDeleted = await api.deleteProfile(_id);
         if (isDeleted) {
@@ -57,10 +56,11 @@ export function CardHome({ _id, name, image, tall, weigth, objective, gym, servi
   return (
     <Card
       maxW="sm"
+      margin='10px'
     >
       <CardBody>
         <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-          <Avatar name={name} src={image} />
+          <Avatar name={name} src={image}/>
           <Box>
             <Heading size="sm">{name}</Heading>
             <Text>{gym}</Text>
