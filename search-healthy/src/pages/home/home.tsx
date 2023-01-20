@@ -39,8 +39,8 @@ export function Home() {
           justifyContent="space-evenly"
           alignItems="center"
           direction="row"
-          paddingTop="10vh"
-          paddingBottom="10vh"
+          paddingBottom='10%'
+          paddingTop='10%'
         >
           {profiles.map((profiles) => {
             return (
