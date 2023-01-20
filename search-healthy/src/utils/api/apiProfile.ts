@@ -72,7 +72,7 @@ export const api = {
   updateProfile: async (profile: Profiles): Promise<Profiles | undefined> => {
     try {
       const updatedProfile= await axios.put(
-        '/profile/update/' + profile._id,
+        '/profile/update/' + profile.id,
         profile,
         {
           headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },

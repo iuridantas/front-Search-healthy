@@ -16,13 +16,13 @@ import { api } from '../../utils/api/apiProfile';
 import { Profiles } from '../../utils/types/requests';
 import swal from 'sweetalert';
 
-interface CardProps extends Profiles {
+interface CardProps {
+  profiles: Profiles
   updatePage: () => void;
 }
 
-export function CardHome({ _id, name, image, tall, weigth, objective, gym, services, updatePage }: CardProps) {
+export function CardHome({ profiles, updatePage }: CardProps) {
   const navigate = useNavigate();
-
   async function DeleteCard() {
     swal({
       title: 'Tem certeza que deseja deletar o perfil?',
@@ -45,7 +45,7 @@ export function CardHome({ _id, name, image, tall, weigth, objective, gym, servi
       },
     }).then(async (res) => {
       if (res) {
-        const isDeleted = await api.deleteProfile(_id);
+        const isDeleted = await api.deleteProfile(profiles.id);
         if (isDeleted) {
           updatePage();
         }
@@ -60,10 +60,10 @@ export function CardHome({ _id, name, image, tall, weigth, objective, gym, servi
     >
       <CardBody>
         <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-          <Avatar name={name} src={image}/>
+          <Avatar name={profiles.name} src={profiles.image}/>
           <Box>
-            <Heading size="sm">{name}</Heading>
-            <Text>{gym}</Text>
+            <Heading size="sm">{profiles.name}</Heading>
+            <Text>{profiles.gym}</Text>
           </Box>
         </Flex>
       </CardBody>
@@ -82,7 +82,7 @@ export function CardHome({ _id, name, image, tall, weigth, objective, gym, servi
               variant="ghost"
               colorScheme="blue"
               onClick={() => {
-                navigate('/profile/update/' + _id);
+                navigate('/profile/update/' + profiles.id);
               }}
             >
               Editar
@@ -92,7 +92,7 @@ export function CardHome({ _id, name, image, tall, weigth, objective, gym, servi
               colorScheme="blue"
               backgroundColor="rgba(66, 153, 225, 0.6)"
               onClick={() => {
-                navigate('/training/find/' + _id);
+                navigate('/training/find/' + profiles.id);
               }}
             >
               Treino

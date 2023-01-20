@@ -1,5 +1,5 @@
 export type User = {
-  _id: string;
+  id: string;
   name: string;
   email: string;
   password: string;
@@ -24,7 +24,7 @@ export type LoginResponse = {
 };
 
 export type Profiles = {
-  _id: string;
+  id: string;
   name: string;
   image: string;
   tall: number;
