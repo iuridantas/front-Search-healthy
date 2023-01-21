@@ -44,6 +44,6 @@ export type ProfilesInput  = {
   objective: string;
   gym: string;
   services: string[];
-  personalsIds: string[];
-  studentsIds: string[];
+  personalsIds?: string[];
+  studentsIds?: string[];
 };
