@@ -1,10 +1,10 @@
 import { api } from '../../utils/api/apiProfile';
 import { useEffect, useState } from 'react';
-import { CardHome } from '../../components/card/cardHome';
 import { Profiles } from '../../utils/types/requests';
 import { Card, Button} from '@chakra-ui/react';
+import { CardProfile } from '../../components/card/cardProfile';
 
-export function Home() {
+export function Profile() {
   const [profiles, setProfiles] = useState<Profiles[]>([]);
   const [loading, setLoading] = useState(false);
   const [control, setControl] = useState<boolean>(false);
@@ -46,7 +46,7 @@ export function Home() {
         >
           {profiles.map((profiles) => {
             return (
-              <CardHome
+              <CardProfile
               profiles={profiles}
               key={profiles.id}
               updatePage={updatePage}

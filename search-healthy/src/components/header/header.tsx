@@ -8,10 +8,36 @@ export function Header() {
   return (
     <HeaderComponent>
       <HeaderLogo>
-          <CgGym size={30} />
-          <h1>Search Healthy</h1>
+        <CgGym size={30} />
+        <h1>Search Healthy</h1>
       </HeaderLogo>
       <HeaderButtons>
+      <div>
+        {localStorage.getItem('token') ? (
+          <button
+            onClick={() => {
+              navigate('/home');
+            }}
+          >
+            Home
+          </button>
+        ) : (
+          <></>
+        )}
+        </div>
+        <div>
+        {localStorage.getItem('token') ? (
+          <button
+            onClick={() => {
+              navigate('/profile');
+            }}
+          >
+            Perfis
+          </button>
+        ) : (
+          <></>
+        )}
+        </div>
         <div>
           {localStorage.getItem('token') ? (
             <button

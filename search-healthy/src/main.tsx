@@ -9,6 +9,7 @@ import { Footer } from './components/footer/footer';
 import { extendTheme } from '@chakra-ui/react'
 import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
+import { Profile } from './pages/profile/profile';
 
 const theme = extendTheme({
   styles: {
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/home" element={<Home />} />
+    <Route path="/profile" element={<Profile />} />
     </Routes>
     <Footer />
     </BrowserRouter>

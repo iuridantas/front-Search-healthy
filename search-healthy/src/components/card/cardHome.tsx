@@ -17,7 +17,7 @@ import { Profiles } from '../../utils/types/requests';
 import swal from 'sweetalert';
 
 interface CardProps {
-  profiles: Profiles
+  profiles: Profiles;
   updatePage: () => void;
 }
 
@@ -54,49 +54,32 @@ export function CardHome({ profiles, updatePage }: CardProps) {
   }
 
   return (
-    <Card
-      maxW="sm"
-      margin='10px'
-    >
-      <CardBody>
-        <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-          <Avatar name={profiles.name} src={profiles.image}/>
+    <Card maxW="sm" margin="10px" width='100%'>
+      <CardBody >
+        <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap" display="flex" justifyContent="center">
+          <Avatar name={profiles.name} src={profiles.image} />
           <Box>
             <Heading size="sm">{profiles.name}</Heading>
-            <Text>{profiles.gym}</Text>
+            <Text as='b'>Academia: {profiles.gym}</Text>
           </Box>
         </Flex>
       </CardBody>
       <Divider />
-      <CardFooter>
+      <CardFooter display="flex" justifyContent="center">
         <ButtonGroup spacing="2">
-            <Button
-              backgroundColor="rgba(66, 153, 225, 0.6)"
-              variant="solid"
-              colorScheme="red"
-              onClick={DeleteCard}
-            >
-              Remover
-            </Button>
-            <Button
-              variant="ghost"
-              colorScheme="blue"
-              onClick={() => {
-                navigate('/profile/update/' + profiles.id);
-              }}
-            >
-              Editar
-            </Button>
-            <Button
-              variant="solid"
-              colorScheme="blue"
-              backgroundColor="rgba(66, 153, 225, 0.6)"
-              onClick={() => {
-                navigate('/training/find/' + profiles.id);
-              }}
-            >
-              Treino
-            </Button>
+          <Button
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            variant="solid"
+            colorScheme="blue"
+            backgroundColor="rgba(66, 153, 225, 0.6)"
+            onClick={() => {
+              navigate('/training/find/' + profiles.id);
+            }}
+          >
+            Treino
+          </Button>
         </ButtonGroup>
       </CardFooter>
     </Card>

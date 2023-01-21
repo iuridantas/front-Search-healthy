@@ -29,6 +29,7 @@ export const HeaderButtons = styled.section`
     cursor: pointer;
     background-color: rgba(66, 153, 225, 0.6);
     padding: 5px;
+    margin: 5px;
     color: black;
     :hover {
       background-color: rgba(66,153,225);
