@@ -45,7 +45,7 @@ export const api = {
       );
     }
   },
-  creatProfile: async (profile: ProfilesInput): Promise<Profiles | undefined> => {
+  creatProfile: async (profile: FormData): Promise<Profiles | undefined> => {
     try {
       const newTeam = await axios.post('/profile/create', profile, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },

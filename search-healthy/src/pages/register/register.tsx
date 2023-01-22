@@ -27,6 +27,7 @@ export function Register() {
     const newUser = new FormData(event.currentTarget);
 
     const userData = await api.registerUser(newUser);
+    console.log(userData)
     if (userData) {
       navigate('/');
     }

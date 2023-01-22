@@ -27,11 +27,8 @@ export type Profiles = {
   id: string;
   name: string;
   image: string;
-  tall: number;
-  weigth: number;
   objective: string;
   gym: string;
-  services: string[];
   personalsIds?: string[];
   studentsIds?: string[];
 };
@@ -39,11 +36,8 @@ export type Profiles = {
 export type ProfilesInput  = {
   name: string;
   image: string;
-  tall: number;
-  weigth: number;
   objective: string;
   gym: string;
-  services: string[];
   personalsIds?: string[];
   studentsIds?: string[];
 };

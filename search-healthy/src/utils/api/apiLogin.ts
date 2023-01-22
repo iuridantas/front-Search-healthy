@@ -22,7 +22,7 @@ export const api = {
       const userCreate = await axios.post('/User/create', user);
       return userCreate.data;
     } catch (err: any) {
-      handleError('Erro ao registrar o usuário', err.response.data.message[0]);
+      handleError('Erro ao registrar o usuário', err.response.data.message);
     }
   },
   signIn: async (loginData: SignIn): Promise<LoginResponse | undefined> => {

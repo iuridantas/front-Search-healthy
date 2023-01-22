@@ -65,9 +65,7 @@ import {
             <Box>
               <Heading size="sm" display="flex" justifyContent="center" >{profiles.name}</Heading>
               <Text display="flex" justifyContent="center" as='b'>Academia: {profiles.gym}</Text>
-              <Text display="flex" justifyContent="center" as='b'>Altura: {profiles.tall} / Peso: {profiles.weigth}</Text>
               <Text display="flex" justifyContent="center" as='b'>Objetivo: {profiles.objective}</Text>
-              <Text as='b'>Modalidades: {profiles.services}</Text>
             </Box>
           </Flex>
         </CardBody>

@@ -30,31 +30,14 @@ export function CreatProfile() {
     }
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    setLoading(true);
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const newProfile: ProfilesInput = {
-      name: event.currentTarget.userName.value,
-      image: event.currentTarget.image.value,
-      tall: event.currentTarget.tall.value,
-      weigth: event.currentTarget.weigth.value,
-      objective: event.currentTarget.objective.value,
-      gym: event.currentTarget.gym.value,
-      services: event.currentTarget.services.value,
-    };
+    const newProfile = new FormData(event.currentTarget);
 
-    let profileResponse;
-    if (id) {
-      const profileToUpdate = { ...newProfile, id: id };
-      profileResponse = await api.updateProfile(profileToUpdate);
-      console.log(profileResponse);
-    } else {
-      profileResponse = await api.creatProfile(newProfile);
-      setLoading(false);
-    }
-
-    if (profileResponse) {
+    const userData = await api.creatProfile(newProfile);
+    console.log(userData)
+    if (userData) {
       navigate('/profile');
     }
   }
@@ -66,7 +49,7 @@ export function CreatProfile() {
         height="100%"
         justifyContent="center"
         alignItems="center"
-        margin="10px"
+        margin="100px"
       >
         <Stack mb="6">
           <Box minW={{ md: '500px' }}>
@@ -78,7 +61,7 @@ export function CreatProfile() {
                 boxShadow="md"
                 borderRadius={14}
               >
-                <Text borderBottomWidth="1px">
+                <Text borderBottomWidth="1px" display="flex" alignItems="center" justifyContent="center" fontSize='2xl'>
                   {id ? 'Atualizar perfil' : 'Criar novo perfil'}
                 </Text>
                 <Box>
@@ -95,30 +78,10 @@ export function CreatProfile() {
                   <FormLabel>Foto:</FormLabel>
                   <Input
                     defaultValue={profiles?.image}
-                    type="file"
+                    type="text"
                     name="image"
                     isRequired
                     placeholder="Foto"
-                  />
-                </Box>
-                <Box>
-                  <FormLabel>Altura:</FormLabel>
-                  <Input
-                    defaultValue={profiles?.tall}
-                    type="float"
-                    name="tall"
-                    isRequired
-                    placeholder="Altura"
-                  />
-                </Box>
-                <Box>
-                  <FormLabel>Peso:</FormLabel>
-                  <Input
-                    defaultValue={profiles?.weigth}
-                    type="number"
-                    name="weigth"
-                    isRequired
-                    placeholder="Peso"
                   />
                 </Box>
                 <Box>
@@ -139,15 +102,6 @@ export function CreatProfile() {
                     name="gym"
                     isRequired
                     placeholder="Academia"
-                  />
-                </Box>
-                <Box>
-                  <FormLabel>Serviços:</FormLabel>
-                  <Textarea
-                    defaultValue={profiles?.services}
-                    name="services"
-                    isRequired
-                    placeholder="Serviços"
                   />
                 </Box>
                 <Box display="flex" justifyContent="center" alignItems="center">
