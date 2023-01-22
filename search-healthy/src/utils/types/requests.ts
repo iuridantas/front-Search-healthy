@@ -24,7 +24,7 @@ export type LoginResponse = {
 };
 
 export type Profiles = {
-  id: string;
+  id?: string;
   name: string;
   image: string;
   objective: string;

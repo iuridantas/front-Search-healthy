@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/home" element={<Home />} />
     <Route path="/profile" element={<Profile />} />
     <Route path="/created" element={<CreatProfile />} />
-    <Route path="/seriea/update/:id" element={<CreatProfile />} />
+    <Route path="/profile/update/:id" element={<CreatProfile />} />
     </Routes>
     <Footer />
     </BrowserRouter>

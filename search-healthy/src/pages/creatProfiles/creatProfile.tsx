@@ -33,11 +33,27 @@ export function CreatProfile() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const newProfile = new FormData(event.currentTarget);
+    const formData = new FormData(event.currentTarget);
 
-    const userData = await api.creatProfile(newProfile);
-    console.log(userData)
-    if (userData) {
+    const newProfile = {
+      name: formData.get('name')?.toString() || '',
+      image: formData.get('image')?.toString() || '',
+      objective: formData.get('objective')?.toString() || '',
+      gym: formData.get('gym')?.toString() || '',
+      personalsIds: [],
+      studentsIds: [],
+    };
+
+    let profileResponse;
+    if (id) {
+      const profileToUpdate = { ...newProfile, id: id };
+      profileResponse = await api.updateProfile(profileToUpdate);
+    } else {
+      profileResponse = await api.creatProfile(newProfile);
+      setLoading(false);
+    }
+
+    if (profileResponse) {
       navigate('/profile');
     }
   }
@@ -61,7 +77,13 @@ export function CreatProfile() {
                 boxShadow="md"
                 borderRadius={14}
               >
-                <Text borderBottomWidth="1px" display="flex" alignItems="center" justifyContent="center" fontSize='2xl'>
+                <Text
+                  borderBottomWidth="1px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  fontSize="2xl"
+                >
                   {id ? 'Atualizar perfil' : 'Criar novo perfil'}
                 </Text>
                 <Box>
@@ -104,18 +126,41 @@ export function CreatProfile() {
                     placeholder="Academia"
                   />
                 </Box>
-                <Box display="flex" justifyContent="center" alignItems="center">
-                  <Button
-                    borderRadius={20}
-                    type="submit"
-                    variant="solid"
-                    colorScheme="blue"
-                    color="black"
-                    backgroundColor="rgba(66, 153, 225, 0.6)"
+                {id ? (
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
                   >
-                    Criar
-                  </Button>
-                </Box>
+                    <Button
+                      borderRadius={20}
+                      type="submit"
+                      variant="solid"
+                      colorScheme="blue"
+                      color="black"
+                      backgroundColor="rgba(66, 153, 225, 0.6)"
+                    >
+                      Editar
+                    </Button>
+                  </Box>
+                ) : (
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <Button
+                      borderRadius={20}
+                      type="submit"
+                      variant="solid"
+                      colorScheme="blue"
+                      color="black"
+                      backgroundColor="rgba(66, 153, 225, 0.6)"
+                    >
+                      Criar
+                    </Button>
+                  </Box>
+                )}
               </Stack>
             </form>
           </Box>

@@ -45,7 +45,7 @@ export const api = {
       );
     }
   },
-  creatProfile: async (profile: FormData): Promise<Profiles | undefined> => {
+  creatProfile: async (profile: Profiles): Promise<Profiles | undefined> => {
     try {
       const newTeam = await axios.post('/profile/create', profile, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
@@ -71,8 +71,8 @@ export const api = {
   },
   updateProfile: async (profile: Profiles): Promise<Profiles | undefined> => {
     try {
-      const updatedProfile= await axios.put(
-        '/profile/update/' + profile.id,
+      const updatedProfile= await axios.patch(
+        '/profile/update',
         profile,
         {
           headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
