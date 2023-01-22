@@ -66,7 +66,7 @@ export function CreatProfile() {
         height="100%"
         justifyContent="center"
         alignItems="center"
-        margin='10px'
+        margin="10px"
       >
         <Stack mb="6">
           <Box minW={{ md: '500px' }}>
@@ -105,7 +105,7 @@ export function CreatProfile() {
                   <FormLabel>Altura:</FormLabel>
                   <Input
                     defaultValue={profiles?.tall}
-                    type="number"
+                    type="float"
                     name="tall"
                     isRequired
                     placeholder="Altura"
@@ -150,22 +150,22 @@ export function CreatProfile() {
                     placeholder="Serviços"
                   />
                 </Box>
+                <Box display="flex" justifyContent="center" alignItems="center">
+                  <Button
+                    borderRadius={20}
+                    type="submit"
+                    variant="solid"
+                    colorScheme="blue"
+                    color="black"
+                    backgroundColor="rgba(66, 153, 225, 0.6)"
+                  >
+                    Criar
+                  </Button>
+                </Box>
               </Stack>
             </form>
           </Box>
         </Stack>
-        <Box>
-          <Button
-            borderRadius={20}
-            type="submit"
-            variant="solid"
-            colorScheme="blue"
-            color="black"
-            backgroundColor="rgba(66, 153, 225, 0.6)"
-          >
-            Criar
-          </Button>
-        </Box>
       </Flex>
     </>
   );

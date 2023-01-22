@@ -17,9 +17,9 @@ function handleError(text: string, description: string) {
 }
 
 export const api = {
-  registerUser: async (user: UserInput): Promise<User | undefined> => {
+  registerUser: async (user: FormData): Promise<User | undefined> => {
     try {
-      const userCreate = await axios.post('/user/create', user);
+      const userCreate = await axios.post('/User/create', user);
       return userCreate.data;
     } catch (err: any) {
       handleError('Erro ao registrar o usuário', err.response.data.message[0]);

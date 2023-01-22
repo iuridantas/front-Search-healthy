@@ -1,31 +1,11 @@
-import {
-  Box,
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  Stack,
-  Textarea,
-  useDisclosure,
-} from '@chakra-ui/react';
-import { FormEvent, useEffect, useState } from 'react';
+import { Button, Flex, Input } from '@chakra-ui/react';
 import { IoMdAdd } from 'react-icons/io';
-import { useNavigate, useParams } from 'react-router-dom';
-import { api } from '../../utils/api/apiProfile';
-import { Profiles, ProfilesInput } from '../../utils/types/requests';
+import { useNavigate } from 'react-router-dom';
 
-export function Top() {
+
+export function Top(){
   const navigate = useNavigate();
-
+  
   return (
     <>
       <Flex
@@ -34,6 +14,10 @@ export function Top() {
         display="flex"
         justifyContent="flex-end"
       >
+        {' '}
+        <Input
+          type="text"
+        />
         <Button
           leftIcon={<IoMdAdd size={20} color="black" />}
           borderRadius={20}
@@ -47,7 +31,6 @@ export function Top() {
         >
           Criar Perfil
         </Button>
-       
       </Flex>
     </>
   );
