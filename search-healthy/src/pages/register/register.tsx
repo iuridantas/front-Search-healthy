@@ -8,10 +8,12 @@ import {
   Box,
   FormControl,
   InputRightElement,
+  FormLabel,
 } from '@chakra-ui/react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../utils/api/apiLogin';
+import { UserInput } from '../../utils/types/requests';
 
 export function Register() {
   const [viewPassword, setViewPassword] = useState<boolean>(false);
@@ -19,6 +21,24 @@ export function Register() {
   const navigate = useNavigate();
 
   const handleShowClick = () => setViewPassword(!viewPassword);
+
+  function validateData(data: UserInput) {
+    let dataIsValid = true;
+    const error = {
+      fields: [] as string[],
+    };
+    if (data.password.length < 8) {
+      error.fields.push("password");
+      dataIsValid = false;
+    }
+
+    if (!data.email.includes(".com")) {
+      error.fields.push("email");
+      dataIsValid = false;
+    }
+
+    return dataIsValid;
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,6 +49,8 @@ export function Register() {
       password: event.currentTarget.password.value,
       cpf: event.currentTarget.cpf.value,
     };
+
+    const isValid = validateData(newUser);
 
     const userData = await api.registerUser(newUser);
     console.log(userData);
@@ -54,18 +76,21 @@ export function Register() {
               boxShadow="md"
               borderRadius={14}
             >
+              <FormLabel htmlFor="name">Nome:</FormLabel>
               <Input
                 borderRadius={10}
                 type="name"
                 placeholder="name"
                 name="name"
               />
+               <FormLabel htmlFor="text">CPF:</FormLabel>
               <Input
                 borderRadius={10}
                 type="cpf"
                 placeholder="cpf"
                 name="cpf"
               />
+              <FormLabel htmlFor="email">Email:</FormLabel>
               <Input
                 borderRadius={10}
                 type="email"
@@ -73,11 +98,12 @@ export function Register() {
                 name="email"
               />
               <FormControl>
+              <FormLabel htmlFor="password">Senha:</FormLabel>
                 <InputGroup>
                   <Input
                     type={viewPassword ? 'text' : 'password'}
                     name="password"
-                    placeholder="Password"
+                    placeholder="Senha"
                     borderRadius={10}
                   />
                   <InputRightElement width="3rem">

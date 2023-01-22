@@ -10,6 +10,7 @@ import { extendTheme } from '@chakra-ui/react'
 import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
 import { Profile } from './pages/profile/profile';
+import { CreatProfile } from './pages/creatProfiles/creatProfile';
 
 const theme = extendTheme({
   styles: {
@@ -31,6 +32,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/register" element={<Register />} />
     <Route path="/home" element={<Home />} />
     <Route path="/profile" element={<Profile />} />
+    <Route path="/created" element={<CreatProfile />} />
+    <Route path="/seriea/update/:id" element={<CreatProfile />} />
     </Routes>
     <Footer />
     </BrowserRouter>
