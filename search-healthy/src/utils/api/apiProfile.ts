@@ -45,7 +45,9 @@ export const api = {
       );
     }
   },
-  creatProfile: async (profile: Profiles): Promise<Profiles | undefined> => {
+  creatProfile: async (
+    profile: ProfilesInput,
+  ): Promise<Profiles | undefined> => {
     try {
       const newTeam = await axios.post('/profile/create', profile, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
@@ -71,16 +73,12 @@ export const api = {
   },
   updateProfile: async (profile: Profiles): Promise<Profiles | undefined> => {
     try {
-      const updatedProfile= await axios.patch(
-        '/profile/update',
-        profile,
-        {
-          headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
-        },
-      );
+      const updatedProfile = await axios.patch('/profile/update', profile, {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+      });
       return updatedProfile.data;
     } catch (err: any) {
       handleError('Erro ao atualizar o perfil', err.response.data.message[0]);
     }
   },
-}
+};

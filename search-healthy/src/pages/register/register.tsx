@@ -36,9 +36,10 @@ export function Register() {
   return (
     <Flex
       flexDirection="column"
-      height="100vh"
+      height="100%"
       justifyContent="center"
       alignItems="center"
+      margin="20px"
     >
       <Stack mb="6">
         <Box minW={{ md: '500px' }}>

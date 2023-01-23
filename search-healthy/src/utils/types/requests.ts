@@ -24,7 +24,7 @@ export type LoginResponse = {
 };
 
 export type Profiles = {
-  id?: string;
+  id: string;
   name: string;
   image: string;
   objective: string;
@@ -33,11 +33,30 @@ export type Profiles = {
   studentsIds?: string[];
 };
 
-export type ProfilesInput  = {
+export type ProfilesInput = {
   name: string;
   image: string;
   objective: string;
   gym: string;
   personalsIds?: string[];
   studentsIds?: string[];
+};
+
+export type Trainings = {
+  id: string;
+  muscularegroup: string;
+  exercises: string;
+  repetition: string;
+  aerobic: string;
+  stretching: string;
+  profileId?: string;
+};
+
+export type TrainingsInput = {
+  muscularegroup: string;
+  exercises: string;
+  repetition: string;
+  aerobic: string;
+  stretching: string;
+  profileId?: string;
 };
