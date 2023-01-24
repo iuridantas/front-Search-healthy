@@ -11,6 +11,7 @@ import { Header } from './components/header/header';
 import { Home } from './pages/home/home';
 import { Profile } from './pages/profile/profile';
 import { CreatProfile } from './pages/creatProfiles/creatProfile';
+import GlobalContext from './context';
 
 const theme = extendTheme({
   styles: {
@@ -24,6 +25,7 @@ const theme = extendTheme({
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <GlobalContext>
     <ChakraProvider theme={theme}>
     <BrowserRouter>
     <Header />
@@ -38,5 +40,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Footer />
     </BrowserRouter>
     </ChakraProvider>
+    </GlobalContext>
   </React.StrictMode>,
 )

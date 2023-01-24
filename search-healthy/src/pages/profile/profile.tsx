@@ -1,14 +1,19 @@
 import { api } from '../../utils/api/apiProfile';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Profiles } from '../../utils/types/requests';
 import { Card, CircularProgress } from '@chakra-ui/react';
 import { CardProfile } from '../../components/card/cardProfile';
 import { Top } from '../../components/top/top';
+import SearchContext from '../../context/searchContext';
+import { useDebounce } from 'usehooks-ts';
 
 export function Profile() {
   const [profiles, setProfiles] = useState<Profiles[]>([]);
   const [loading, setLoading] = useState(false);
   const [control, setControl] = useState<boolean>(false);
+  const { search } = useContext(SearchContext);
+  const debouncedSearch = useDebounce(search, 1000);
+  const [filteredProfiles, setFilteredProfiles] = useState<Profiles[]>([]);
 
   async function getTeamsInfo() {
     setLoading(true);
@@ -25,9 +30,22 @@ export function Profile() {
     getTeamsInfo();
   }, [control]);
 
+  useEffect(() => {
+    if (search !== '') {
+      const getFilteredProfiles = profiles.filter((profile) =>
+        profile.name.toUpperCase().includes(search.toUpperCase()),
+      );
+      setFilteredProfiles(getFilteredProfiles);
+    } else {
+      setFilteredProfiles([])
+    }
+  }, [debouncedSearch]);
+
+  const hasFilter = filteredProfiles.length === 0;
+
   return (
     <>
-      <Top/>
+      <Top />
       {loading ? (
         <CircularProgress
           isIndeterminate
@@ -47,15 +65,25 @@ export function Profile() {
           paddingBottom="10%"
           paddingTop="5%"
         >
-          {profiles.map((profiles) => {
-            return (
-              <CardProfile
-                profiles={profiles}
-                key={profiles.id}
-                updatePage={updatePage}
-              />
-            );
-          })}
+          {hasFilter
+            ? profiles.map((profiles) => {
+                return (
+                  <CardProfile
+                    profiles={profiles}
+                    key={profiles.id}
+                    updatePage={updatePage}
+                  />
+                );
+              })
+            : filteredProfiles.map((profiles) => {
+                return (
+                  <CardProfile
+                    profiles={profiles}
+                    key={profiles.id}
+                    updatePage={updatePage}
+                  />
+                );
+              })}
         </Card>
       )}
     </>

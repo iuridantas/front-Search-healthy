@@ -1,11 +1,14 @@
 import { Button, Flex, Input } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { IoMdAdd } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import SearchContext from '../../context/searchContext';
 
 
 export function Top(){
   const navigate = useNavigate();
-  
+  const {setSearch} = useContext(SearchContext)
+
   return (
     <>
       <Flex
@@ -16,6 +19,7 @@ export function Top(){
       >
         {' '}
         <Input
+        onChange={(e) => setSearch(e.target.value)}
           type="text"
         />
         <Button
