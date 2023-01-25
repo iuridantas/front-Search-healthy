@@ -45,7 +45,6 @@ export function Profile() {
 
   return (
     <>
-      <Top />
       {loading ? (
         <CircularProgress
           isIndeterminate
