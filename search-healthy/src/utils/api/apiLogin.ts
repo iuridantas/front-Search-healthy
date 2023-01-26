@@ -2,7 +2,7 @@ import { LoginResponse, SignIn, User, UserInput } from '../types/requests';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-axios.defaults.baseURL = 'http://localhost:3000/';
+axios.defaults.baseURL = 'https://search-healthy-production.up.railway.app/';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.common['Authorization'] =
   'Bearer ' + localStorage.getItem('token');
