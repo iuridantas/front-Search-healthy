@@ -1,12 +1,23 @@
 import { createContext, useState } from 'react';
 
+
+interface PropsSearchContext {
+  search: string,
+  setSearch: React.Dispatch<React.SetStateAction<any>>
+}
+
+interface SearchContextProviderType {
+  children: any
+}
+
 const DEFAULT_VALUE = {
+  setSearch:(value:string) => '',
   search: '',
 };
 
-const SearchContext = createContext<any>(DEFAULT_VALUE);
+const SearchContext = createContext<PropsSearchContext>(DEFAULT_VALUE);
 
-const SearchContextProvider: React.FC = ({ children }:any) => {
+const SearchContextProvider: React.FC<SearchContextProviderType> = ({ children }) => {
   const [search, setSearch] = useState(DEFAULT_VALUE.search);
   return (
     <SearchContext.Provider value={{ search, setSearch }}>

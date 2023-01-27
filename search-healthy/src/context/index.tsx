@@ -2,7 +2,11 @@
 import React from 'react';
 import { SearchContextProvider } from './searchContext';
 
-const GlobalContext: React.FC = ({children}:any) => {
+interface GlobalContextType {
+  children: any
+}
+
+const GlobalContext: React.FC<GlobalContextType> = ({children}) => {
   return (
     <SearchContextProvider>{children}</SearchContextProvider>
   );
