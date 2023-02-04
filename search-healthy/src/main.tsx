@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login } from './pages/login/login';
 import { ChakraProvider } from '@chakra-ui/react';
 import { Register } from './pages/register/register';
-
 import { Footer } from './components/footer/footer';
 import { extendTheme } from '@chakra-ui/react'
 import { Header } from './components/header/header';

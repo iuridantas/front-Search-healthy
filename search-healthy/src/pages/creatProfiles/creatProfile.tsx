@@ -11,7 +11,7 @@ import {
 import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../utils/api/apiProfile';
-import { Profiles, ProfilesInput } from '../../utils/types/requests';
+import { Profiles, User, ProfilesInput } from '../../utils/types/requests';
 
 export function CreatProfile() {
   const [loading, setLoading] = useState(false);

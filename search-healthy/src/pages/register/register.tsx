@@ -74,6 +74,14 @@ export function Register() {
                 name="email"
                 required
               />
+              <FormLabel htmlFor="role">Personal ou Aluno:</FormLabel>
+              <Input
+                borderRadius={10}
+                type="text"
+                placeholder="Personal ou Aluno"
+                name="role"
+                required
+              />
               <FormControl>
                 <FormLabel htmlFor="password">Senha:</FormLabel>
                 <InputGroup>

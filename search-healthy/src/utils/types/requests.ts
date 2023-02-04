@@ -4,6 +4,7 @@ export type User = {
   email: string;
   password: string;
   cpf: string;
+  role:string;
 };
 
 export type UserInput = {
@@ -11,6 +12,7 @@ export type UserInput = {
   email: string;
   password: string;
   cpf: string;
+  role:string;
 };
 
 export type SignIn = {
