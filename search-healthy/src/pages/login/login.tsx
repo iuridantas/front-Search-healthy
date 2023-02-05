@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import {
   Flex,
   Input,
@@ -12,10 +12,12 @@ import {
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../utils/api/apiLogin';
+import UserContext from '../../context/userContext';
 
 export function Login() {
   const [viewPassword, setViewPassword] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const { tokenId, setTokenId } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -32,7 +34,7 @@ export function Login() {
 
     const userData = await api.signIn(login);
     setLoading(false);
-    console.log(userData);
+    if (userData?.token) setTokenId(userData?.token);
     if (userData) {
       navigate('/home');
     }
@@ -57,14 +59,19 @@ export function Login() {
             >
               <FormControl>
                 <InputGroup>
-                  <Input borderRadius={10} type="email" placeholder="email" name='email' />
+                  <Input
+                    borderRadius={10}
+                    type="email"
+                    placeholder="email"
+                    name="email"
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
                 <InputGroup>
                   <Input
                     type={viewPassword ? 'text' : 'password'}
-                    name='password'
+                    name="password"
                     placeholder="Password"
                     borderRadius={10}
                   />

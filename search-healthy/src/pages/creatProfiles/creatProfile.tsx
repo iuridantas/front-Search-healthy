@@ -8,8 +8,9 @@ import {
   Stack,
   Textarea,
 } from '@chakra-ui/react';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import UserContext from '../../context/userContext';
 import { api } from '../../utils/api/apiProfile';
 import { Profiles, User, ProfilesInput } from '../../utils/types/requests';
 
@@ -17,6 +18,8 @@ export function CreatProfile() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [profiles, setProfiles] = useState<Profiles>();
+  const {user} = useContext(UserContext);
+  console.log(user)
   const { id } = useParams();
 
   useEffect(() => {
@@ -34,13 +37,13 @@ export function CreatProfile() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-
+    
     const newProfile = {
       name: formData.get('name')?.toString() || '',
       image: formData.get('image')?.toString() || '',
       objective: formData.get('objective')?.toString() || '',
       gym: formData.get('gym')?.toString() || '',
-      personalsIds: [],
+      personalsIds: [user?.id ?? ''],
       studentsIds: [],
     };
 

@@ -37,4 +37,14 @@ export const api = {
       );
     }
   },
+  auth: async (token: string ): Promise<User | undefined> => {
+    try {
+      const auth = await axios.get('/auth', {
+        headers: { Authorization: 'Bearer ' + token },
+      });
+      return auth.data;
+    } catch (err: any) {
+      handleError('token incorreto', err.response.data.message[0]);
+    }
+  },
 };

@@ -1,10 +1,10 @@
 export type User = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  cpf: string;
-  role:string;
+  id?: string;
+  name?: string;
+  email?: string;
+  password?: string;
+  cpf?: string;
+  role?:string;
 };
 
 export type UserInput = {
