@@ -11,31 +11,17 @@ import { BsSearch } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import SearchContext from '../../context/searchContext';
 
-export function Top() {
+export function TopProfile() {
   const navigate = useNavigate();
   const { setSearch } = useContext(SearchContext);
 
   return (
-    <>
       <Flex
         marginTop="10px"
-        width="98%"
+        width="100%"
         display="flex"
         justifyContent="space-evenly"
       >
-        <Button
-          leftIcon={<IoMdAdd size={20} color="black" />}
-          borderRadius={20}
-          color="black"
-          colorScheme="blue"
-          type="submit"
-          bg="rgba(66, 153, 225, 0.6)"
-          onClick={() => {
-            navigate('/created');
-          }}
-        >
-          Criar Perfil
-        </Button>
         <Flex display="flex" justifyContent="center" width="50%">
           <InputGroup>
             <InputLeftElement
@@ -57,12 +43,11 @@ export function Top() {
           type="submit"
           bg="rgba(66, 153, 225, 0.6)"
           onClick={() => {
-            navigate('/created/training');
+            navigate('/created');
           }}
         >
-          Criar Treino
+          Criar Perfil
         </Button>
       </Flex>
-    </>
   );
 }

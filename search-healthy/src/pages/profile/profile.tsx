@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Profiles } from '../../utils/types/requests';
 import { Card, CircularProgress } from '@chakra-ui/react';
 import { CardProfile } from '../../components/card/cardProfile';
-import { Top } from '../../components/top/top';
+import { TopProfile } from '../../components/top/topProfile';
 import SearchContext from '../../context/searchContext';
 import { useDebounce } from 'usehooks-ts';
 
@@ -37,7 +37,7 @@ export function Profile() {
       );
       setFilteredProfiles(getFilteredProfiles);
     } else {
-      setFilteredProfiles([])
+      setFilteredProfiles([]);
     }
   }, [debouncedSearch]);
 
@@ -45,6 +45,7 @@ export function Profile() {
 
   return (
     <>
+      <TopProfile />
       {loading ? (
         <CircularProgress
           isIndeterminate

@@ -19,7 +19,6 @@ export function CreatProfile() {
   const navigate = useNavigate();
   const [profiles, setProfiles] = useState<Profiles>();
   const {user} = useContext(UserContext);
-  console.log(user)
   const { id } = useParams();
 
   useEffect(() => {

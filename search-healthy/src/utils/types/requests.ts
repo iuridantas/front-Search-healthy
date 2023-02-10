@@ -47,7 +47,7 @@ export type ProfilesInput = {
 export type Trainings = {
   id: string;
   muscularegroup: string;
-  exercises: string;
+  exercises: string[];
   repetition: string;
   aerobic: string;
   stretching: string;
@@ -56,7 +56,7 @@ export type Trainings = {
 
 export type TrainingsInput = {
   muscularegroup: string;
-  exercises: string;
+  exercises: string[];
   repetition: string;
   aerobic: string;
   stretching: string;

@@ -3,9 +3,10 @@ import { useContext, useEffect, useState } from 'react';
 import { CardHome } from '../../components/card/cardHome';
 import { Profiles } from '../../utils/types/requests';
 import { Card, CircularProgress } from '@chakra-ui/react';
-import { Top } from '../../components/top/top';
+
 import SearchContext from '../../context/searchContext';
 import { useDebounce } from 'usehooks-ts';
+import { TopHome } from '../../components/top/topHome';
 
 export function Home() {
   const [profiles, setProfiles] = useState<Profiles[]>([]);
@@ -45,7 +46,7 @@ export function Home() {
 
   return (
     <>
-      <Top />
+      <TopHome/>
       {loading ? (
         <CircularProgress
           isIndeterminate
