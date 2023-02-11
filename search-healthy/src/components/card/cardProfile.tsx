@@ -6,9 +6,11 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Divider,
+  Center,
+  Image,
   Flex,
   Heading,
+  Stack,
   Text,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
@@ -55,77 +57,103 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
   }
 
   return (
-    <Card maxW="sm" margin="10px" width="50%">
-      <CardBody>
-        <Flex
-          flex="1"
-          gap="4"
-          alignItems="center"
-          flexWrap="wrap"
-          flexDirection="column"
-        >
-          <Avatar name={profiles.name} src={profiles.image} />
-          <Box>
-            <Heading size="sm" display="flex" justifyContent="center">
+    <Center>
+      <Box w="full" bg="white" boxShadow="2xl" rounded="20" overflow="hidden">
+        <Image
+          h="120px"
+          w="full"
+          borderBottom="4px solid #B22222"
+          src="../../public/foto.jpg"
+          objectFit="cover"
+        />
+        <Flex justify="center" mt="-12">
+          <Avatar
+            size="xl"
+            src={profiles.image}
+            name={profiles.name}
+            overflow="hidden"
+            border="4px solid #B22222"
+          />
+        </Flex>
+        <Box p="2" mt="4">
+          <Stack spacing="0" align={'center'}>
+            <Heading fontSize="2xl" fontWeight="500" fontFamily="body">
               {profiles.name}
             </Heading>
-            <Text display="flex" justifyContent="center" as="b">
-              Academia: {profiles.gym}
-            </Text>
-            <Text display="flex" justifyContent="center" as="b">
-              Objetivo: {profiles.objective}
-            </Text>
-          </Box>
-        </Flex>
-      </CardBody>
-      <Divider />
-      <CardFooter display="flex" justifyContent="center">
-        <ButtonGroup spacing="2">
-          <Button
-            backgroundColor="rgba(66, 153, 225, 0.6)"
-            variant="solid"
-            colorScheme="red"
-            onClick={DeleteCard}
-          >
-            Remover
-          </Button>
-          <Button
-            variant="ghost"
-            colorScheme="blue"
-            onClick={() => {
-              navigate('/profile/update/' + profiles.id);
-            }}
-          >
-            Editar
-          </Button>
-          <Button
-            variant="solid"
-            colorScheme="blue"
-            backgroundColor="rgba(66, 153, 225, 0.6)"
-            onClick={() => {
-              navigate('/training/find/' + profiles.id);
-            }}
-          >
-            Treino
-          </Button>
-        </ButtonGroup>
-      </CardFooter>
-      <Flex display="flex" justifyContent="center">
-      <Button
-        leftIcon={<IoMdAdd size={20}/>}
-        colorScheme="blue"
-        type="submit"
-        bg="rgba(66, 153, 225, 0.6)"
-        marginBottom="12px"
-        onClick={() => {
-          navigate('/created/training/' + profiles.id, {
-            state: {isCreated: true}
-          });
-        }}
-      >
-        Criar Treino
-      </Button>
-      </Flex>
-    </Card>
+            <Text color="gray.500">Academia: {profiles.gym}</Text>
+            <Text color="gray.500">Objetivo: {profiles.objective}</Text>
+          </Stack>
+          <CardFooter display="flex" justifyContent="center">
+            <ButtonGroup spacing="2" mt="4">
+              <Button
+                w="full"
+                bg="#151f21"
+                color="white"
+                rounded="md"
+                onClick={DeleteCard}
+                _hover={{
+                  bg: 'red',
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
+                }}
+              >
+                Remover
+              </Button>
+              <Button
+                w="full"
+                bg="#151f21"
+                color="white"
+                rounded="md"
+                onClick={() => {
+                  navigate('/profile/update/' + profiles.id);
+                }}
+                _hover={{
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
+                }}
+              >
+                Editar
+              </Button>
+              <Button
+                w="full"
+                bg="#151f21"
+                color="white"
+                rounded="md"
+                onClick={() => {
+                  navigate('/training/find/' + profiles.id);
+                }}
+                _hover={{
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
+                }}
+              >
+                Treino
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+          <Flex display="flex" justifyContent="center">
+            <Button
+              leftIcon={<IoMdAdd size={20} />}
+              w="50%"
+              bg="#151f21"
+              color="white"
+              rounded="md"
+              mt="2"
+              onClick={() => {
+                navigate('/created/training/' + profiles.id, {
+                  state: { isCreated: true },
+                });
+              }}
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}
+            >
+              Criar Treino
+            </Button>
+          </Flex>
+        </Box>
+      </Box>
+    </Center>
   );
 }

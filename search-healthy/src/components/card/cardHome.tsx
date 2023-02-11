@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Button,
+  Image,
   ButtonGroup,
   Card,
   CardBody,
@@ -10,6 +11,8 @@ import {
   Flex,
   Heading,
   Text,
+  Center,
+  Stack,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../utils/api/apiProfile';
@@ -54,34 +57,50 @@ export function CardHome({ profiles, updatePage }: CardProps) {
   }
 
   return (
-    <Card maxW="sm" margin="10px" width='100%'>
-      <CardBody >
-        <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap" display="flex" justifyContent="center">
-          <Avatar name={profiles.name} src={profiles.image} />
-          <Box>
-            <Heading size="sm">{profiles.name}</Heading>
-            <Text as='b'>Academia: {profiles.gym}</Text>
-          </Box>
+    <Center>
+      <Box w="full" bg="white" boxShadow="2xl" rounded="20" overflow="hidden">
+        <Image
+          h="120px"
+          w="full"
+          borderBottom="4px solid #B22222"
+          src="../../public/foto.jpg"
+          objectFit="cover"
+        />
+        <Flex justify="center" mt="-12">
+          <Avatar
+            size="xl"
+            src={profiles.image}
+            name={profiles.name}
+            overflow="hidden"
+            border="4px solid #B22222"
+          />
         </Flex>
-      </CardBody>
-      <Divider />
-      <CardFooter display="flex" justifyContent="center">
-        <ButtonGroup spacing="2">
+        <Box p="6">
+          <Stack spacing="0" align="center">
+            <Heading fontSize="2xl" fontWeight="500" fontFamily="body">
+              {profiles.name}
+            </Heading>
+            <Text color="gray.500">Academia: {profiles.gym}</Text>
+          </Stack>
+
           <Button
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            variant="solid"
-            colorScheme="blue"
-            backgroundColor="rgba(66, 153, 225, 0.6)"
+            w="full"
+            mt="8"
+            bg="#151f21"
+            color="white"
+            rounded="md"
             onClick={() => {
               navigate('/training/find/' + profiles.id);
             }}
+            _hover={{
+              transform: 'translateY(-4px)',
+              boxShadow: 'lg',
+            }}
           >
-            Treino
+            Editar
           </Button>
-        </ButtonGroup>
-      </CardFooter>
-    </Card>
+        </Box>
+      </Box>
+    </Center>
   );
 }
