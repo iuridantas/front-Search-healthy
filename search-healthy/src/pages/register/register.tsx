@@ -9,6 +9,7 @@ import {
   FormControl,
   InputRightElement,
   FormLabel,
+  ButtonGroup,
 } from '@chakra-ui/react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
@@ -56,6 +57,7 @@ export function Register() {
                 type="name"
                 placeholder="name"
                 name="name"
+                borderColor='black'
                 required
               />
               <FormLabel htmlFor="text">CPF:</FormLabel>
@@ -64,6 +66,7 @@ export function Register() {
                 type="text"
                 placeholder="cpf"
                 name="cpf"
+                borderColor='black'
                 required
               />
               <FormLabel htmlFor="email">Email:</FormLabel>
@@ -72,6 +75,7 @@ export function Register() {
                 type="email"
                 placeholder="email"
                 name="email"
+                borderColor='black'
                 required
               />
               <FormLabel htmlFor="role">Personal ou Aluno:</FormLabel>
@@ -80,6 +84,7 @@ export function Register() {
                 type="text"
                 placeholder="Personal ou Aluno"
                 name="role"
+                borderColor='black'
                 required
               />
               <FormControl>
@@ -89,6 +94,7 @@ export function Register() {
                     type={viewPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Senha"
+                    borderColor='black'
                     required
                     borderRadius={10}
                   />
@@ -108,18 +114,36 @@ export function Register() {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <Box display="flex" justifyContent="center" alignItems="center">
+              <ButtonGroup display="flex" spacing="20" justifyContent="center">
                 <Button
-                  borderRadius={20}
+                  bg="#151f21"
+                  color="white"
+                  rounded="md"
                   type="submit"
-                  variant="solid"
-                  colorScheme="blue"
-                  color="black"
-                  backgroundColor="rgba(66, 153, 225, 0.6)"
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}
                 >
                   Cadastrar
                 </Button>
-              </Box>
+                <Button
+                  bg="#151f21"
+                  color="white"
+                  type="submit"
+                  rounded="md"
+                  onClick={() => {
+                    navigate('/');
+                  }}
+                  _hover={{
+                    bg: 'red',
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}
+                >
+                  Cancelar
+                </Button>
+              </ButtonGroup>
             </Stack>
           </form>
         </Box>
