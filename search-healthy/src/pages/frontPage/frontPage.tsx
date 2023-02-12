@@ -34,7 +34,7 @@ export function FrontPage() {
               Search Healthy
             </Text>
           </Heading>
-          <Text fontSize={{ base: 'md', lg: 'lg' }} color="black.500">
+          <Text textAlign='justify' fontSize={{ base: 'md', lg: 'lg' }} color="black.500">
             Transforme sua rotina de treinamento com a Search Healthy. Com um
             plano de treinamento personalizado, baseado em suas metas e
             preferências pessoais, você terá acesso a um treinador virtual 24/7,

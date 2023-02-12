@@ -8,6 +8,9 @@ import {
   Box,
   FormControl,
   InputRightElement,
+  Heading,
+  ButtonGroup,
+  FormLabel,
 } from '@chakra-ui/react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
@@ -43,11 +46,14 @@ export function Login() {
   return (
     <Flex
       flexDirection="column"
-      height="100vh"
       justifyContent="center"
       alignItems="center"
+      h="90vh"
     >
       <Stack mb="6">
+        <Stack align={'center'} spacing={2} py={10} px={6}>
+          <Heading fontSize={'4xl'}>Faça login em sua conta</Heading>
+        </Stack>
         <Box minW={{ md: '500px' }}>
           <form onSubmit={handleSubmit}>
             <Stack
@@ -58,22 +64,26 @@ export function Login() {
               borderRadius={14}
             >
               <FormControl>
+                <FormLabel>Emaill:</FormLabel>
                 <InputGroup>
                   <Input
                     borderRadius={10}
                     type="email"
                     placeholder="email"
                     name="email"
+                    borderColor='black'
                   />
                 </InputGroup>
               </FormControl>
               <FormControl>
+              <FormLabel>Senha:</FormLabel>
                 <InputGroup>
                   <Input
                     type={viewPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
                     borderRadius={10}
+                    borderColor='black'
                   />
                   <InputRightElement width="3rem">
                     <Button
@@ -91,47 +101,35 @@ export function Login() {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              {loading ? (
-                <Button
-                  isLoading
-                  loadingText="Loading"
-                  borderRadius={20}
-                  variant="solid"
-                  colorScheme="blue"
-                  color="black"
-                  backgroundColor="rgba(66, 153, 225, 0.6)"
-                />
-              ) : (
-                <Button
-                  borderRadius={20}
-                  type="submit"
-                  variant="solid"
-                  colorScheme="blue"
-                  color="black"
-                  backgroundColor="rgba(66, 153, 225, 0.6)"
-                >
-                  Login
-                </Button>
-              )}
+              <ButtonGroup display="flex" justifyContent="center">
+                {loading ? (
+                  <Button
+                    isLoading
+                    loadingText="Loading"
+                    bg="#151f21"
+                    color="white"
+                    rounded="md"
+                    type="submit"
+                  />
+                ) : (
+                  <Button
+                    bg="#151f21"
+                    color="white"
+                    rounded="md"
+                    type="submit"
+                    _hover={{
+                      transform: 'translateY(-2px)',
+                      boxShadow: 'lg',
+                    }}
+                  >
+                    Login
+                  </Button>
+                )}
+              </ButtonGroup>
             </Stack>
           </form>
         </Box>
       </Stack>
-      <Box>
-        <Button
-          borderRadius={20}
-          type="submit"
-          variant="solid"
-          colorScheme="blue"
-          color="black"
-          backgroundColor="rgba(66, 153, 225, 0.6)"
-          onClick={() => {
-            navigate('/register');
-          }}
-        >
-          Crie sua conta
-        </Button>
-      </Box>
     </Flex>
   );
 }

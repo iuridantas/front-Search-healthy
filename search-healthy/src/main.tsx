@@ -42,7 +42,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/profile/update/:id" element={<CreatProfile />} />
     <Route path="/created/training/:id" element={<CreatTraining />} />
     </Routes>
-    {/* <Footer /> */}
+    <Footer />
     </BrowserRouter>
     </ChakraProvider>
     </GlobalContext>

@@ -29,7 +29,7 @@ export function Register() {
 
     const userData = await api.registerUser(newUser);
     if (userData) {
-      navigate('/');
+      navigate('/login');
     }
   }
 
@@ -40,6 +40,7 @@ export function Register() {
       justifyContent="center"
       alignItems="center"
       margin="20px"
+      h="90vh"
     >
       <Stack mb="6">
         <Box minW={{ md: '500px' }}>
