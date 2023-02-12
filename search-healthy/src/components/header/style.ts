@@ -5,7 +5,6 @@ export const HeaderComponent = styled.header`
   width: 100%;
   padding: 5px 10px 5px 15px;
   bottom: 0;
-  border-bottom: dashed;
   justify-content: space-between;
   h1 {
     padding-left: 20px;

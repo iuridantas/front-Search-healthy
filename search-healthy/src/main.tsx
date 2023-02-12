@@ -13,6 +13,7 @@ import { CreatProfile } from './pages/creatProfiles/creatProfile';
 import GlobalContext from './context';
 import { CreatTraining } from './pages/creatTraining/creatTraining';
 import { Training } from './pages/training/training';
+import { FrontPage } from './pages/frontPage/frontPage';
 
 const theme = extendTheme({
   styles: {
@@ -31,7 +32,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
     <Header />
     <Routes>
-    <Route path="/" element={<Login />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/" element={<FrontPage/>} />
     <Route path="/register" element={<Register />} />
     <Route path="/home" element={<Home />} />
     <Route path="/profile" element={<Profile />} />
@@ -40,7 +42,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/profile/update/:id" element={<CreatProfile />} />
     <Route path="/created/training/:id" element={<CreatTraining />} />
     </Routes>
-    <Footer />
+    {/* <Footer /> */}
     </BrowserRouter>
     </ChakraProvider>
     </GlobalContext>
