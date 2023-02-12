@@ -32,6 +32,7 @@ export function TopHome() {
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Nome do aluno"
+            borderColor='black'
           />
         </InputGroup>
       </Flex>

@@ -90,6 +90,7 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
                 bg="#151f21"
                 color="white"
                 rounded="md"
+                type="submit"
                 onClick={DeleteCard}
                 _hover={{
                   bg: 'red',
@@ -104,6 +105,7 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
                 bg="#151f21"
                 color="white"
                 rounded="md"
+                type="submit"
                 onClick={() => {
                   navigate('/profile/update/' + profiles.id);
                 }}
@@ -119,6 +121,7 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
                 bg="#151f21"
                 color="white"
                 rounded="md"
+                type="submit"
                 onClick={() => {
                   navigate('/training/find/' + profiles.id);
                 }}
@@ -138,6 +141,7 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
               bg="#151f21"
               color="white"
               rounded="md"
+              type="submit"
               mt="2"
               onClick={() => {
                 navigate('/created/training/' + profiles.id, {

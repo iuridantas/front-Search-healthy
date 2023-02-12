@@ -1,15 +1,15 @@
 import { api } from '../../utils/api/apiTraining';
 import { useContext, useEffect, useState } from 'react';
-import { Trainings } from '../../utils/types/requests';
+import { Profiles, Trainings } from '../../utils/types/requests';
 import { Card, CircularProgress } from '@chakra-ui/react';
 import SearchContext from '../../context/searchContext';
 import { useDebounce } from 'usehooks-ts';
 import { CardTraining } from '../../components/card/cardTraining';
-import { TopHome } from '../../components/top/topHome';
-
+import { TopTraining } from '../../components/top/topTraining';
 
 export function Training() {
   const [trainings, setTrainings] = useState<Trainings[]>([]);
+  const [profiles, setProfiles] = useState<Profiles[]>([]);
   const [loading, setLoading] = useState(false);
   const [control, setControl] = useState<boolean>(false);
   const { search } = useContext(SearchContext);
@@ -34,7 +34,7 @@ export function Training() {
   useEffect(() => {
     if (search !== '') {
       const getFilteredTrainings = trainings.filter((training) =>
-      training.muscularegroup.toUpperCase().includes(search.toUpperCase()),
+        training.muscularegroup.toUpperCase().includes(search.toUpperCase()),
       );
       setFilteredTrainings(getFilteredTrainings);
     } else {
@@ -46,7 +46,7 @@ export function Training() {
 
   return (
     <>
-      <TopHome/>
+      <TopTraining />
       {loading ? (
         <CircularProgress
           isIndeterminate
@@ -69,18 +69,12 @@ export function Training() {
           {hasFilter
             ? trainings.map((trainings) => {
                 return (
-                  <CardTraining
-                  trainings={trainings}
-                    key={trainings.id}
-                  />
+                  <CardTraining trainings={trainings} key={trainings.id} />
                 );
               })
             : filteredTrainings.map((trainings) => {
                 return (
-                  <CardTraining
-                  trainings={trainings}
-                    key={trainings.id}
-                  />
+                  <CardTraining trainings={trainings} key={trainings.id} />
                 );
               })}
         </Card>

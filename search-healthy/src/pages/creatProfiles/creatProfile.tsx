@@ -7,6 +7,8 @@ import {
   Text,
   Stack,
   Textarea,
+  CardFooter,
+  ButtonGroup,
 } from '@chakra-ui/react';
 import { FormEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -18,7 +20,7 @@ export function CreatProfile() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [profiles, setProfiles] = useState<Profiles>();
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { id } = useParams();
 
   useEffect(() => {
@@ -36,7 +38,7 @@ export function CreatProfile() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    
+
     const newProfile = {
       name: formData.get('name')?.toString() || '',
       image: formData.get('image')?.toString() || '',
@@ -80,11 +82,12 @@ export function CreatProfile() {
                 borderRadius={14}
               >
                 <Text
-                  borderBottomWidth="1px"
+                  borderBottomWidth="5px"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
                   fontSize="2xl"
+                  borderColor="black"
                 >
                   {id ? 'Atualizar perfil' : 'Criar novo perfil'}
                 </Text>
@@ -96,6 +99,7 @@ export function CreatProfile() {
                     name="name"
                     isRequired
                     placeholder="Nome"
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -106,6 +110,7 @@ export function CreatProfile() {
                     name="image"
                     isRequired
                     placeholder="Foto"
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -116,6 +121,7 @@ export function CreatProfile() {
                     name="objective"
                     isRequired
                     placeholder="Objetivo"
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -126,6 +132,7 @@ export function CreatProfile() {
                     name="gym"
                     isRequired
                     placeholder="Academia"
+                    borderColor="black"
                   />
                 </Box>
                 {id ? (
@@ -134,16 +141,37 @@ export function CreatProfile() {
                     justifyContent="center"
                     alignItems="center"
                   >
+                    <ButtonGroup display='flex' spacing="20" justifyContent='center'>
                     <Button
-                      borderRadius={20}
+                      w="20%"
+                      bg="#151f21"
+                      color="white"
+                      rounded="md"
                       type="submit"
-                      variant="solid"
-                      colorScheme="blue"
-                      color="black"
-                      backgroundColor="rgba(66, 153, 225, 0.6)"
+                      _hover={{
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'lg',
+                      }}
                     >
                       Editar
                     </Button>
+                    <Button
+                      bg="#151f21"
+                      color="white"
+                      type="submit"
+                      rounded="md"
+                      onClick={() => {
+                        navigate('/profile');
+                      }}
+                      _hover={{
+                        bg:'red',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'lg',
+                      }}
+                    >
+                      Cancelar
+                    </Button>
+                    </ButtonGroup>
                   </Box>
                 ) : (
                   <Box
@@ -151,16 +179,37 @@ export function CreatProfile() {
                     justifyContent="center"
                     alignItems="center"
                   >
+                    <ButtonGroup display='flex' spacing="20" justifyContent='center'>
                     <Button
-                      borderRadius={20}
+                      bg="#151f21"
+                      color="white"
                       type="submit"
-                      variant="solid"
-                      colorScheme="blue"
-                      color="black"
-                      backgroundColor="rgba(66, 153, 225, 0.6)"
+                      rounded="md"
+                      _hover={{
+                        bg:'green',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'lg',
+                      }}
                     >
                       Criar
                     </Button>
+                    <Button
+                      bg="#151f21"
+                      color="white"
+                      type="submit"
+                      rounded="md"
+                      onClick={() => {
+                        navigate('/profile');
+                      }}
+                      _hover={{
+                        bg:'red',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'lg',
+                      }}
+                    >
+                      Cancelar
+                    </Button>
+                    </ButtonGroup>
                   </Box>
                 )}
               </Stack>

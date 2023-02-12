@@ -27,12 +27,13 @@ export const HeaderButtons = styled.section`
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    background-color: rgba(66, 153, 225, 0.6);
+    background-color: #151f21;
     padding: 5px;
     margin: 5px;
-    color: black;
+    color: white;
     :hover {
-      background-color: rgba(66,153,225);
+      color: black;
+      background-color: white;
     }
   }
 `;

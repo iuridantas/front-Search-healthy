@@ -27,38 +27,29 @@ export function CardTraining({ trainings }: CardProps) {
           w={'full'}
           bg="white"
           boxShadow={'2xl'}
-          rounded={'md'}
+          rounded="20"
           p={6}
           overflow={'hidden'}
         >
-          <Stack>
+          <Stack align="center">
             <Heading color="gray.700" fontSize={'2xl'} fontFamily={'body'}>
               {trainings.muscularegroup}
             </Heading>
-            <Text color={'gray.500'}>Exercicio: {trainings.exercises}</Text>
-            <Text color={'gray.500'}>Repetição: {trainings.repetition}</Text>
-            <Text color={'gray.500'}>Aeróbico: {trainings.aerobic}</Text>
-            <Text color={'gray.500'}>Alongamento: {trainings.stretching}</Text>
+            <Text>Exercicio: {trainings.exercises}</Text>
+            <Text>Repetição: {trainings.repetition}</Text>
+            <Text>Aeróbico: {trainings.aerobic}</Text>
+            <Text>Alongamento: {trainings.stretching}</Text>
           </Stack>
-          <CardFooter display="flex" justifyContent="center">
-            <ButtonGroup spacing="2" mt="4">
-              <Button
-                w="full"
-                bg="#151f21"
-                color="white"
-                rounded="md"
-                onClick={() => {
-                  navigate('/training/update/' + trainings.id);
-                }}
-                _hover={{
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'lg',
-                }}
-              >
-                Editar
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
+          <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
+          <Avatar
+            src='../../public/treino.jpg'
+            name='Treino'
+          />
+          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+          <Text color={'gray.500'}>Treino criado em:</Text>
+            <Text align={'center'} color={'gray.500'}>{trainings.day}</Text>
+          </Stack>
+        </Stack>
         </Box>
       </Center>
     </>
