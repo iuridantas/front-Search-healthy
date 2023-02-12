@@ -52,6 +52,7 @@ export type Trainings = {
   aerobic: string;
   stretching: string;
   profileId?: string;
+  day?: string;
 };
 
 export type TrainingsInput = {

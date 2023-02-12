@@ -97,7 +97,7 @@ export function CardHome({ profiles, updatePage }: CardProps) {
               boxShadow: 'lg',
             }}
           >
-            Editar
+            Treino
           </Button>
         </Box>
       </Box>
