@@ -43,56 +43,52 @@ export default function Contact() {
             <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
                 <Box>
-                  <Heading display="flex" justifyContent="center">
+                  <Heading display="flex" justifyContent="center" paddingBottom='5'>
                     Contato
                   </Heading>
-                  <Text
-                    mt={{ sm: 3, md: 3, lg: 5 }}
-                    display="flex"
-                    justifyContent="center"
-                    color="gray.500"
-                  >
-                    Preencha o formulário abaixo para entrar em contato
-                  </Text>
                   <Box
                     display="flex"
                     justifyContent="center"
                     py={{ base: 5, sm: 5, md: 8, lg: 10 }}
                   >
-                    <VStack pl={0} spacing={3} alignItems="flex-start">
-                      <Button
+                    <VStack
+                      pl={0}
+                      spacing={3}
+                      alignItems="flex-start"
+                    >
+                      <Text
                         size="md"
                         height="48px"
-                        width="200px"
+                        width="300px"
                         variant="ghost"
                         color="#DCE2FF"
-                        _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdPhone color="#1970F1" size="20px" />}
+                        display="flex"
+                        justifyContent="center"
                       >
                         +55 (00) 0 0000-0000
-                      </Button>
-                      <Button
+                      </Text>
+                      <Text
                         size="md"
                         height="48px"
-                        width="200px"
+                        width="300px"
                         variant="ghost"
                         color="#DCE2FF"
-                        _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdEmail color="#1970F1" size="20px" />}
+                        display="flex"
+                        justifyContent="center"
                       >
                         SearchHealthy@hotmail.com
-                      </Button>
-                      <Button
+                      </Text>
+                      <Text
                         size="md"
                         height="48px"
-                        width="200px"
+                        width="300px"
                         variant="ghost"
                         color="#DCE2FF"
-                        _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
+                        display="flex"
+                        justifyContent="center"
                       >
                         Aracaju, Brasil
-                      </Button>
+                      </Text>
                     </VStack>
                   </Box>
                   <HStack
@@ -140,60 +136,6 @@ export default function Contact() {
                       />
                     </Link>
                   </HStack>
-                </Box>
-              </WrapItem>
-              <WrapItem>
-                <Box bg="white" borderRadius="lg">
-                  <Box m={8} color="#0B0E3F">
-                    <VStack spacing={5}>
-                      <FormControl id="name">
-                        <FormLabel>Seu Nome</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                          <InputLeftElement
-                            pointerEvents="none"
-                            children={<BsPerson color="gray.800" />}
-                          />
-                          <Input type="text" size="md" />
-                        </InputGroup>
-                      </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Emaill</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                          <InputLeftElement
-                            pointerEvents="none"
-                            children={<MdOutlineEmail color="gray.800" />}
-                          />
-                          <Input type="text" size="md" />
-                        </InputGroup>
-                      </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Mensagem</FormLabel>
-                        <Textarea
-                          borderColor="gray.300"
-                          _hover={{
-                            borderRadius: 'gray.300',
-                          }}
-                          placeholder="message"
-                        />
-                      </FormControl>
-                      <FormControl
-                        id="name"
-                        float="right"
-                        display="flex"
-                        justifyContent="center"
-                      >
-                        <Button
-                          variant="solid"
-                          type="submit"
-                          bg="#0D74FF"
-                          color="white"
-                          _hover={{}}
-                        >
-                          Enviar
-                        </Button>
-                      </FormControl>
-                    </VStack>
-                  </Box>
                 </Box>
               </WrapItem>
             </Wrap>
