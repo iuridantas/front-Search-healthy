@@ -9,7 +9,6 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
 import { Trainings } from '../../utils/types/requests';
 
 interface CardProps {
@@ -17,22 +16,21 @@ interface CardProps {
 }
 
 export function CardTraining({ trainings }: CardProps) {
-  const navigate = useNavigate();
 
   return (
     <>
       <Center py={6}>
         <Box
-          maxW={'445px'}
-          w={'full'}
+          maxW='445px'
+          w='full'
           bg="white"
-          boxShadow={'2xl'}
+          boxShadow='2xl'
           rounded="20"
-          p={6}
-          overflow={'hidden'}
+          p='6'
+          overflow='hidden'
         >
           <Stack align="center">
-            <Heading color="gray.700" fontSize={'2xl'} fontFamily={'body'}>
+            <Heading color="gray.700" fontSize='2xl' fontFamily='body'>
               {trainings.muscularegroup}
             </Heading>
             <Text>Exercicio: {trainings.exercises}</Text>
@@ -40,14 +38,14 @@ export function CardTraining({ trainings }: CardProps) {
             <Text>Aeróbico: {trainings.aerobic}</Text>
             <Text>Alongamento: {trainings.stretching}</Text>
           </Stack>
-          <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
+          <Stack mt='6' direction='row' spacing='4' align='center' justifyContent='center'>
           <Avatar
             src='../../public/treino.jpg'
             name='Treino'
           />
-          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-          <Text color={'gray.500'}>Treino criado em:</Text>
-            <Text align={'center'} color={'gray.500'}>{trainings.day}</Text>
+          <Stack direction='column' spacing='0'fontSize='sm'>
+          <Text color='gray.500'>Treino criado em:</Text>
+            <Text align='center' color='gray.500'>{trainings.day}</Text>
           </Stack>
         </Stack>
         </Box>

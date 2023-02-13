@@ -20,6 +20,19 @@ export function Header() {
         {localStorage.getItem('token') ? (
           <button
             onClick={() => {
+              navigate('/user');
+            }}
+          >
+            Conta
+          </button>
+        ) : (
+          <></>
+        )}
+        </div>
+      <div>
+        {localStorage.getItem('token') ? (
+          <button
+            onClick={() => {
               navigate('/home');
             }}
           >

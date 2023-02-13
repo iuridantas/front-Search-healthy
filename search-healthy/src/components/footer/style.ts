@@ -7,7 +7,6 @@ export const FooterComponent = styled.footer`
   width: 100%;
   padding: 5px 10px 5px 15px;
   bottom: 0;
-  border-top: dashed;
   a {
     color: black;
     cursor: pointer;

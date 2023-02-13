@@ -10,7 +10,6 @@ import { BsSearch } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import SearchContext from '../../context/searchContext';
 
-
 export function TopTraining() {
   const navigate = useNavigate();
   const { setSearch } = useContext(SearchContext);
@@ -27,7 +26,7 @@ export function TopTraining() {
             onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Grupo Muscular"
-            borderColor='black'
+            borderColor="black"
           />
         </InputGroup>
       </Flex>

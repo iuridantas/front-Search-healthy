@@ -14,6 +14,7 @@ import GlobalContext from './context';
 import { CreatTraining } from './pages/creatTraining/creatTraining';
 import { Training } from './pages/training/training';
 import { FrontPage } from './pages/frontPage/frontPage';
+import { User } from './pages/user/user';
 
 const theme = extendTheme({
   styles: {
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/register" element={<Register />} />
     <Route path="/home" element={<Home />} />
     <Route path="/profile" element={<Profile />} />
+    <Route path="/user" element={<User />} />
     <Route path='/training/find/:id' element={<Training />}/>
     <Route path="/created" element={<CreatProfile />} />
     <Route path="/profile/update/:id" element={<CreatProfile />} />
