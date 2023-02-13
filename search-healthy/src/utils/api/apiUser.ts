@@ -17,6 +17,14 @@ function handleError(text: string, description: string) {
 }
 
 export const api = {
+  registerUser: async (user: User): Promise<User | undefined> => {
+    try {
+      const userCreate = await axios.post('/User/create', user);
+      return userCreate.data;
+    } catch (err: any) {
+      handleError('Erro ao registrar o usuário', err.response.data.message);
+    }
+  },
   getUsers: async (): Promise<User[] | undefined> => {
     try {
       const users = await axios.get('/User', {

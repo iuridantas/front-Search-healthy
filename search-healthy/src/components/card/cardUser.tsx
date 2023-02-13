@@ -50,8 +50,10 @@ import {
         if (res) {
           const isDeleted = await api.deleteUser(users.id);
           if (isDeleted) {
+            localStorage.removeItem('token');
             updatePage();
           }
+          navigate('/');
         }
       });
     }
@@ -105,7 +107,7 @@ import {
                   rounded="md"
                   type="submit"
                   onClick={() => {
-                    navigate('/profile/update/' + users.id);
+                    navigate('/User/update/' + users.id);
                   }}
                   _hover={{
                     transform: 'translateY(-2px)',
