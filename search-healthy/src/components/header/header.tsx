@@ -7,14 +7,10 @@ export function Header() {
 
   return (
     <HeaderComponent>
-      {localStorage.getItem('token') ? (
       <HeaderLogo>
         <CgGym size={30} />
         <h1>Search Healthy</h1>
       </HeaderLogo>
-      ) : (
-          <></>
-        )}
       <HeaderButtons>
       <div>
         {localStorage.getItem('token') ? (
@@ -50,6 +46,19 @@ export function Header() {
             }}
           >
             Perfis
+          </button>
+        ) : (
+          <></>
+        )}
+        </div>
+        <div>
+        {localStorage.getItem('token') ? (
+          <button
+            onClick={() => {
+              navigate('/contact');
+            }}
+          >
+            Contato
           </button>
         ) : (
           <></>

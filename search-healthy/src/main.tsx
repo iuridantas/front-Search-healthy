@@ -15,6 +15,7 @@ import { CreatTraining } from './pages/creatTraining/creatTraining';
 import { Training } from './pages/training/training';
 import { FrontPage } from './pages/frontPage/frontPage';
 import { User } from './pages/user/user';
+import Contact from './pages/contact/contact';
 
 const theme = extendTheme({
   styles: {
@@ -44,8 +45,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Route path="/created" element={<CreatProfile />} />
     <Route path="/profile/update/:id" element={<CreatProfile />} />
     <Route path="/created/training/:id" element={<CreatTraining />} />
+    <Route path="/contact" element={<Contact/>} />
     </Routes>
-    <Footer />
     </BrowserRouter>
     </ChakraProvider>
     </GlobalContext>

@@ -38,6 +38,7 @@ export function User() {
       ) : (
         <Card
           display="flex"
+          h='92.8vh'
           flexWrap="wrap"
           justifyContent="space-evenly"
           alignItems="center"
