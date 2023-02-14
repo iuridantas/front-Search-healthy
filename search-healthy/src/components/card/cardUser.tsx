@@ -47,7 +47,7 @@ import {
           },
         },
       }).then(async (res) => {
-        if (res) {
+        if (res && users.id) {
           const isDeleted = await api.deleteUser(users.id);
           if (isDeleted) {
             localStorage.removeItem('token');
