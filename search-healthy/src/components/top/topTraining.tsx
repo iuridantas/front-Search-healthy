@@ -1,5 +1,4 @@
 import {
-  Button,
   Flex,
   Input,
   InputGroup,
@@ -7,11 +6,9 @@ import {
 } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
 import SearchContext from '../../context/searchContext';
 
 export function TopTraining() {
-  const navigate = useNavigate();
   const { setSearch } = useContext(SearchContext);
 
   return (

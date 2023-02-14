@@ -16,7 +16,7 @@ export function Home() {
   const debouncedSearch = useDebounce(search, 1000);
   const [filteredProfiles, setFilteredProfiles] = useState<Profiles[]>([]);
 
-  async function getTeamsInfo() {
+  async function getHomeInfo() {
     setLoading(true);
     const allProfiles = await api.getProfiles();
     setProfiles(allProfiles ?? []);
@@ -28,7 +28,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    getTeamsInfo();
+    getHomeInfo();
   }, [control]);
 
   useEffect(() => {

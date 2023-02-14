@@ -1,6 +1,6 @@
 import { api } from '../../utils/api/apiTraining';
 import { useContext, useEffect, useState } from 'react';
-import { Profiles, Trainings } from '../../utils/types/requests';
+import { Trainings } from '../../utils/types/requests';
 import { Card, CircularProgress } from '@chakra-ui/react';
 import SearchContext from '../../context/searchContext';
 import { useDebounce } from 'usehooks-ts';
@@ -9,26 +9,21 @@ import { TopTraining } from '../../components/top/topTraining';
 
 export function Training() {
   const [trainings, setTrainings] = useState<Trainings[]>([]);
-  const [profiles, setProfiles] = useState<Profiles[]>([]);
   const [loading, setLoading] = useState(false);
   const [control, setControl] = useState<boolean>(false);
   const { search } = useContext(SearchContext);
   const debouncedSearch = useDebounce(search, 1000);
   const [filteredTrainings, setFilteredTrainings] = useState<Trainings[]>([]);
 
-  async function getTeamsInfo() {
+  async function getTrainingInfo() {
     setLoading(true);
     const allTrainings = await api.getTrainings();
     setTrainings(allTrainings ?? []);
     setLoading(false);
   }
 
-  function updatePage() {
-    setControl(!control);
-  }
-
   useEffect(() => {
-    getTeamsInfo();
+    getTrainingInfo();
   }, [control]);
 
   useEffect(() => {

@@ -1,9 +1,6 @@
 import {
   Avatar,
   Box,
-  Button,
-  ButtonGroup,
-  CardFooter,
   Center,
   Heading,
   Stack,

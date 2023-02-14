@@ -9,9 +9,8 @@ import {
   Textarea,
   ButtonGroup,
 } from '@chakra-ui/react';
-import { FormEvent, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import UserContext from '../../context/userContext';
 import { api } from '../../utils/api/apiTraining';
 import { Trainings } from '../../utils/types/requests';
 
@@ -65,8 +64,8 @@ export function CreatTraining() {
         alignItems="center"
         margin="100px"
       >
-        <Stack mb="6" >
-          <Box minW={{ md: '500px' }} >
+        <Stack mb="6">
+          <Box minW={{ md: '500px' }}>
             <form onSubmit={handleSubmit}>
               <Stack
                 spacing={4}
@@ -77,7 +76,7 @@ export function CreatTraining() {
               >
                 <Text
                   borderBottomWidth="5px"
-                  borderColor='black'
+                  borderColor="black"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
@@ -93,7 +92,7 @@ export function CreatTraining() {
                     name="muscularegroup"
                     isRequired
                     placeholder="Nome"
-                    borderColor='black'
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -103,7 +102,7 @@ export function CreatTraining() {
                     name="exercises"
                     isRequired
                     placeholder="Exercicio"
-                    borderColor='black'
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -114,7 +113,7 @@ export function CreatTraining() {
                     name="repetition"
                     isRequired
                     placeholder="Repetição"
-                    borderColor='black'
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -125,7 +124,7 @@ export function CreatTraining() {
                     name="aerobic"
                     isRequired
                     placeholder="Aeróbico"
-                    borderColor='black'
+                    borderColor="black"
                   />
                 </Box>
                 <Box>
@@ -136,25 +135,29 @@ export function CreatTraining() {
                     name="stretching"
                     isRequired
                     placeholder="Alongamento"
-                    borderColor='black'
+                    borderColor="black"
                   />
                 </Box>
                 <Box display="flex" justifyContent="center" alignItems="center">
-                <ButtonGroup display='flex' spacing="20" justifyContent='center'>
-                  <Button
-                    bg="#151f21"
-                    color="white"
-                    rounded="md"
-                    type="submit"
-                    _hover={{
-                      bg:'green',
-                      transform: 'translateY(-2px)',
-                      boxShadow: 'lg',
-                    }}
+                  <ButtonGroup
+                    display="flex"
+                    spacing="20"
+                    justifyContent="center"
                   >
-                    Criar
-                  </Button>
-                  <Button
+                    <Button
+                      bg="#151f21"
+                      color="white"
+                      rounded="md"
+                      type="submit"
+                      _hover={{
+                        bg: 'green',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'lg',
+                      }}
+                    >
+                      Criar
+                    </Button>
+                    <Button
                       bg="#151f21"
                       color="white"
                       type="submit"
@@ -163,7 +166,7 @@ export function CreatTraining() {
                         navigate('/profile');
                       }}
                       _hover={{
-                        bg:'red',
+                        bg: 'red',
                         transform: 'translateY(-2px)',
                         boxShadow: 'lg',
                       }}

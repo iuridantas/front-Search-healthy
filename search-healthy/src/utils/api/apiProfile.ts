@@ -1,6 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert';
-import { Profiles, ProfilesInput } from '../types/requests';
+import { Profiles } from '../types/requests';
 
 axios.defaults.baseURL = 'https://search-healthy-production.up.railway.app/';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -46,7 +46,7 @@ export const api = {
     }
   },
   creatProfile: async (
-    profile: ProfilesInput,
+    profile: Profiles,
   ): Promise<Profiles | undefined> => {
     try {
       const newTeam = await axios.post('/profile/create', profile, {

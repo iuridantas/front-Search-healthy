@@ -1,6 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert';
-import { Profiles, TrainingsInput, Trainings } from '../types/requests';
+import { Trainings } from '../types/requests';
 
 axios.defaults.baseURL = 'https://search-healthy-production.up.railway.app/';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -31,7 +31,7 @@ export const api = {
     }
   },
   creatTraining: async (
-    training: TrainingsInput,
+    training: Trainings
   ): Promise<Trainings | undefined> => {
     try {
       const newTraining = await axios.post('/training/create', training, {

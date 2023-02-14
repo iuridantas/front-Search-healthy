@@ -6,15 +6,13 @@ import {
   Input,
   Text,
   Stack,
-  Textarea,
-  CardFooter,
   ButtonGroup,
 } from '@chakra-ui/react';
-import { FormEvent, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserContext from '../../context/userContext';
 import { api } from '../../utils/api/apiProfile';
-import { Profiles, User, ProfilesInput } from '../../utils/types/requests';
+import { Profiles } from '../../utils/types/requests';
 
 export function CreatProfile() {
   const [loading, setLoading] = useState(false);

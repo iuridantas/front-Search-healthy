@@ -1,4 +1,4 @@
-import { LoginResponse, SignIn, User, UserInput } from '../types/requests';
+import { LoginResponse, SignIn, User } from '../types/requests';
 import axios from 'axios';
 import swal from 'sweetalert';
 

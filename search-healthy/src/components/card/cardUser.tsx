@@ -3,21 +3,17 @@ import {
     Box,
     Button,
     ButtonGroup,
-    Card,
-    CardBody,
     CardFooter,
     Center,
     Image,
     Flex,
     Heading,
     Stack,
-    Text,
   } from '@chakra-ui/react';
   import { useNavigate } from 'react-router-dom';
   import { api } from '../../utils/api/apiUser';
   import { User } from '../../utils/types/requests';
   import swal from 'sweetalert';
-  import { IoMdAdd } from 'react-icons/io';
   
   interface CardProps {
     users: User;

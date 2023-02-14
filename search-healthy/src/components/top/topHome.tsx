@@ -1,18 +1,14 @@
 import {
-  Button,
   Flex,
   Input,
   InputGroup,
   InputLeftElement,
 } from '@chakra-ui/react';
 import { useContext } from 'react';
-import { IoMdAdd } from 'react-icons/io';
 import { BsSearch } from 'react-icons/bs';
-import { useNavigate } from 'react-router-dom';
 import SearchContext from '../../context/searchContext';
 
 export function TopHome() {
-  const navigate = useNavigate();
   const { setSearch } = useContext(SearchContext);
 
   return (
