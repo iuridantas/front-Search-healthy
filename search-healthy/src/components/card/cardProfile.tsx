@@ -48,7 +48,7 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
       },
     }).then(async (res) => {
       if (res) {
-        const isDeleted = await api.deleteProfile(profiles.id);
+        const isDeleted = await api.deleteProfile(profiles.id ?? '');
         if (isDeleted) {
           updatePage();
         }

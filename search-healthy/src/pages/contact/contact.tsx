@@ -5,28 +5,13 @@ import {
   Heading,
   Text,
   IconButton,
-  Button,
   VStack,
   HStack,
   Wrap,
   WrapItem,
   Link,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Textarea,
 } from '@chakra-ui/react';
-import {
-  MdPhone,
-  MdEmail,
-  MdLocationOn,
-  MdFacebook,
-  MdOutlineEmail,
-} from 'react-icons/md';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
-import { BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
   return (
