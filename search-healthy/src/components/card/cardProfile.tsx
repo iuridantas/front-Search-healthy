@@ -63,7 +63,7 @@ export function CardProfile({ profiles, updatePage }: CardProps) {
           h="120px"
           w="full"
           borderBottom="4px solid #B22222"
-          src="../../public/foto.jpg"
+          src="../../public/foto.jpeg"
           objectFit="cover"
         />
         <Flex justify="center" mt="-12">
