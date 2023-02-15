@@ -61,7 +61,7 @@ import {
             h="120px"
             w="full"
             borderBottom="4px solid #B22222"
-            src="../../public/foto.jpg"
+            src={'../../foto.jpeg'}
             objectFit="cover"
           />
           <Flex justify="center" mt="-12">
