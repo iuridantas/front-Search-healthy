@@ -37,7 +37,7 @@ export function CardTraining({ trainings }: CardProps) {
           </Stack>
           <Stack mt='6' direction='row' spacing='4' align='center' justifyContent='center'>
           <Avatar
-            src='../../public/treino.jpeg'
+            src='../../../public/treino.jpeg'
             name='Treino'
           />
           <Stack direction='column' spacing='0'fontSize='sm'>
