@@ -27,7 +27,7 @@ export function CardHome({ profiles }: CardProps) {
           h="120px"
           w="full"
           borderBottom="4px solid #B22222"
-          src="../../../public/foto.jpeg"
+          src={'../../foto.jpeg'}
           objectFit="cover"
         />
         <Flex justify="center" mt="-12">
